@@ -1,0 +1,34 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>@_neto.l7</h1>
+    <ul id="minhalista">
+
+
+    </ul>
+
+    <script>
+         async function buscaDados(){
+            const resposta = await fetch("http://localhost:8000/estudantes")
+        console.log(resposta)
+        if(resposta.status ===200){
+            const dados = await resposta.json()
+            console.log(dados)
+            //criem um li apartir do valor dados,
+            //coloque o texto que vem do banco no li,
+            //adicione li na ul com id"minhalista""
+
+        }else{
+            if(resposta.status ===400){
+            const dados =  await resposta.json()
+            alert(dados.mensagem)
+            }else{
+                alert("ERRO NAO IDENTIFICADO")
+            }
+        }
+         }
+         buscaDados()
+    </script>
+</body>
+</html>
